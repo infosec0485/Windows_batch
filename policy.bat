@@ -56,10 +56,10 @@ net accounts /minpwage:1
 net accounts /minpwlen:9
 net accounts /forcelogoff:5
 
-reg add "HKCU\Control Panel\Desktop" /v "ScreenSaveActive" /t REG_SZ /d "1" /f
-reg add "HKCU\Control Panel\Desktop" /v "ScreenSaveTimeOut" /t REG_SZ /d 300 /f
-reg add "HKCU\Control Panel\Desktop" /v "ScreenSaveIsSecure" /t REG_SZ /d 1 /f
-reg add "HKCU\Control Panel\Desktop" /v "SCRNSAVE.EXE" /t REG_SZ /d "C:\WINDOWS\system32\scrnsave.scr" /f
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaveActive /t REG_SZ /d 1 /f
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaveTimeOut /t REG_SZ /d 300 /f
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaverIsSecure /t REG_SZ /d 1 /f
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v SCRNSAVE.EXE /t REG_SZ /d "C:\WINDOWS\system32\scrnsave.scr" /f
 
 pause
 exit
