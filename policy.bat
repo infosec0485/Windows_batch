@@ -24,31 +24,31 @@ REM --> If error flag set, we do not have admin.
 secedit.exe /export /cfg C:\secconfig.cfg 
 
 echo %time%
-timeout 0.5 > NUL
+timeout 1 > NUL
 echo %time%
 
 powershell -Command "(gc C:\secconfig.cfg) -replace 'PasswordComplexity = 0', 'PasswordComplexity = 1' | Out-File -encoding ASCII C:\secconfigupdated.cfg" 
 
 echo %time%
-timeout 0.5 > NUL
+timeout 1 > NUL
 echo %time%
 
 secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg /areas SECURITYPOLICY 
 
 echo %time%
-timeout 0.1 > NUL
+timeout 1 > NUL
 echo %time%
 
 del c:\secconfig.cfg 
 
 echo %time%
-timeout 0.1 > NUL
+timeout 1 > NUL
 echo %time%
 
 del c:\secconfigupdated.cfg 
 
 echo %time%
-timeout 0.1 > NUL
+timeout 1 > NUL
 echo %time%
 
 net accounts /maxpwage:90
@@ -61,4 +61,5 @@ reg add "HKCU\Control Panel\Desktop" /v "ScreenSaveTimeOut" /t REG_SZ /d 300 /f
 reg add "HKCU\Control Panel\Desktop" /v "ScreenSaveIsSecure" /t REG_SZ /d 1 /f
 reg add "HKCU\Control Panel\Desktop" /v "SCRNSAVE.EXE" /t REG_SZ /d "C:\WINDOWS\system32\scrnsave.scr" /f
 
+pause
 exit
